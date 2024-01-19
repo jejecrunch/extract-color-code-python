@@ -21,7 +21,13 @@ print("HEX 파일 쓰기 시작!")
 f = open('output/hexCode.txt', 'w', encoding='UTF8')
 for i in matches:
     data = i + '\n'
-    f.write(data)
+    val = '#' + i[1:] + i[1:]
+    if val not in matches:
+        if len(i) == 4:
+            val = '#' + i[1:] + i[1:] + "\n"
+        else:
+            val = data
+        f.write(val)
 f.close()
 print("HEX 파일 쓰기 완료!")
 print("-"*10)
@@ -36,9 +42,12 @@ f.close()
 
 print("RGB, RGBA 파일 쓰기 시작!")
 matches = sorted(list(set(matches)))
+array = set()
 f = open('output/rgbaCode.txt', 'w', encoding='UTF8')
 for i in matches:
-    data = i[0] + '\n'
+    array.add(i[0].replace(" ",""))
+for i in array:
+    data = i + "\n"
     f.write(data)
 f.close()
 print("RGB, RGBA 파일 쓰기 완료!")
