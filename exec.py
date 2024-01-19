@@ -18,7 +18,7 @@ print("HEX CODE 추출 완료!")
 print("-"*10)
 f.close()
 print("HEX 파일 쓰기 시작!")
-f = open('output/hexCode.txt', 'w', encoding='UTF8')
+f = open('output/result.txt', 'w', encoding='UTF8')
 for i in matches:
     data = i + '\n'
     val = '#' + i[1:] + i[1:]
@@ -43,7 +43,7 @@ f.close()
 print("RGB, RGBA 파일 쓰기 시작!")
 matches = sorted(list(set(matches)))
 array = set()
-f = open('output/rgbaCode.txt', 'w', encoding='UTF8')
+f = open('output/result.txt', 'a', encoding='UTF8')
 for i in matches:
     array.add(i[0].replace(" ",""))
 for i in array:
